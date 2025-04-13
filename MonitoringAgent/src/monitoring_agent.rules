@@ -1,0 +1,21 @@
+# EXEC
+-a always,exit -F arch=b64 -S execve -F auid>0 -F auid!=-1 -k agent_exec
+-a always,exit -F arch=b64 -S execveat -F auid>0 -F auid!=-1 -k agent_exec
+
+# NETWORK
+-a always,exit -F arch=b64 -S socket -F auid>0 -F auid!=-1 -k agent_net
+-a always,exit -F arch=b64 -S connect -F auid>0 -F auid!=-1 -k agent_net
+-a always,exit -F arch=b64 -S bind -F auid>0 -F auid!=-1 -k agent_net
+-a always,exit -F arch=b64 -S accept -F auid>0 -F auid!=-1 -k agent_net
+-a always,exit -F arch=b64 -S sendto -F auid>0 -F auid!=-1 -k agent_net
+-a always,exit -F arch=b64 -S recvfrom -F auid>0 -F auid!=-1 -k agent_net
+
+# FILE
+-a always,exit -F arch=b64 -S open -F auid>0 -F auid!=-1 -k agent_file
+-a always,exit -F arch=b64 -S openat -F auid>0 -F auid!=-1 -k agent_file
+
+# CONFIG
+-b 16384
+
+
+

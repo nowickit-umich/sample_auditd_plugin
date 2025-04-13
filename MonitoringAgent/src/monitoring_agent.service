@@ -1,0 +1,14 @@
+[Unit]
+Description=Monitoring Agent
+After=network.target auditd.service
+Wants=auditd.service
+
+[Service]
+ExecStart=/usr/bin/monitoring_agent
+Restart=always
+User=monitoring_agent
+Group=monitoring_agent
+WorkingDirectory=/var/lib/monitoring_agent
+
+[Install]
+WantedBy=multi-user.target
